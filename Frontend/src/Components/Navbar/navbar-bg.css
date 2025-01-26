@@ -1,0 +1,19 @@
+.wholeNavbar {
+    width: 100%;
+}
+
+.NavBar {
+    height: auto;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+    color: white;
+}
+
+.title {
+    position: absolute;
+    top: 15%;
+    left:2%;
+}
