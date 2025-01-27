@@ -1,0 +1,18 @@
+.menu-list {
+    list-style-type: none;
+    display: flex;
+    margin: 0.35rem 3rem 0 0;
+}
+
+.menu-list li {
+    margin: 0px 1.5rem;
+    font-weight: 300;
+}
+
+.separatorLine {
+    width: 3px;
+    height: 3vw;
+    background-color: #3a322d;
+    border-radius: 5px;
+    margin-left: 30px;
+}

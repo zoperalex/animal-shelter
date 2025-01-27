@@ -11,11 +11,12 @@ div {
 .separationLine {
     width: 3px;
     height: 5vw;
-    background-color: white;
+    background-color: #3a322d;
     border-radius: 5px;
     margin-left: 30px;
 }
 
 .title-container {
     display: flex;
+    min-width: 128px;
 }

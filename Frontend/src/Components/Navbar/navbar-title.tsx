@@ -8,7 +8,7 @@ const NavbarTitle = () => {
                 <span className="FirstLetter">A</span>nimal{" "}
                 <span className="FirstLetter">S</span>helter
             </div>
-            <div className="separationLine"></div>
+            {/* <div className="separationLine"></div> */}
         </div>
     );
 };

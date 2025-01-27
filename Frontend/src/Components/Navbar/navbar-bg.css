@@ -9,11 +9,22 @@
 
 .container {
     position: relative;
-    color: white;
+    color: #3a322d;
 }
 
 .title {
+    margin-left: 2rem;
+}
+
+.menu {
+    margin-right: 2rem;
+}
+
+.navbar-content-container {
     position: absolute;
-    top: 15%;
-    left:2%;
+    top: 10%;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
