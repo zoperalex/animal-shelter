@@ -1,11 +1,12 @@
 package com.eyteam.animal_shelter.service;
 
-import com.eyteam.animal_shelter.model.Animal;
-import com.eyteam.animal_shelter.model.GetAllAnimalsResponse;
+import com.eyteam.animal_shelter.model.*;
 import com.eyteam.animal_shelter.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,21 +21,29 @@ public class AnimalService {
     }
 
     public GetAllAnimalsResponse getAllAnimals() {
-        final List<Animal> animals =  animalRepository.findAll();
-        GetAllAnimalsResponse res = new GetAllAnimalsResponse(animals);
-        return res;
-
+        final List<Animal> animals = animalRepository.findAll();
+        return new GetAllAnimalsResponse(animals);
     }
 
-    public Optional<Animal> getAnimalById(Integer id) {
-        return animalRepository.findById(id);
+    public Animal getAnimalById(Integer id) {
+        final Optional<Animal> animal = animalRepository.findAnimalById(id);
+        return animal.orElseGet(Animal::new);
     }
 
-    public Animal saveAnimal(Animal animal) {
-        return animalRepository.save(animal);
+    public GetAllAnimalCardResponse getAllAnimalCards() {
+        final List<Animal> animals = animalRepository.findAll();
+        final List<AnimalCard> animalCards = animals.stream().map(AnimalCard::fromAnimal).toList();
+        return new GetAllAnimalCardResponse(animalCards);
     }
 
-    public void deleteAnimal(Integer id) {
-        animalRepository.deleteById(id);
+
+    public AnimalCard getAnimalCard(Integer id) {
+        final Optional<Animal> animal = animalRepository.findAnimalById(id);
+        return animal.map(AnimalCard::fromAnimal).orElse(null);
+    }
+
+
+    public GetFilteredAnimalResponse getFilteredAnimals() {
+        return null;
     }
 }
