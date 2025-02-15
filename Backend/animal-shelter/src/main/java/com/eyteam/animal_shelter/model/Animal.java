@@ -1,12 +1,11 @@
 package com.eyteam.animal_shelter.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -36,4 +35,7 @@ public class Animal {
     @Column(name= "disabilities")
     private Boolean disabled;
 
+    @ManyToOne
+    @JoinColumn(name = "animal_id")
+    private List<AnimalImage> image;
 }
