@@ -10,7 +10,7 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-            const newTop = Math.max(-currentScrollY / 3, -120);
+            const newTop = Math.max(-currentScrollY / 2, -120);
             setTop(newTop);
         };
 
