@@ -10,7 +10,7 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-            const newTop = Math.max(-currentScrollY / 2, -120);
+            const newTop = Math.max(-currentScrollY / 35, -6);
             setTop(newTop);
         };
 
@@ -36,7 +36,7 @@ const Navbar = () => {
             className={`wholeNavbar ${isTransitioning ? "transition" : ""} ${
                 isHovered ? "hovered" : ""
             }`}
-            style={{ top: `${top}px` }}
+            style={{ top: `${top}vw` }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
