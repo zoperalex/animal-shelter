@@ -5,10 +5,9 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-            <Carousel />
-            <Carousel />
-            <Carousel />
-            <Carousel />
+            <div style={{ top: "10vh" }}>
+                <Carousel />
+            </div>
         </div>
     );
 };

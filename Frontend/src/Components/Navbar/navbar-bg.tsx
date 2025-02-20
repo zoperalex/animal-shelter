@@ -43,7 +43,7 @@ const Navbar = () => {
             <div className="container">
                 <img
                     className="NavBar"
-                    src="/images/NavBar-white.png"
+                    src="/images/NavBar-white.svg"
                     alt="clouds"
                 />
                 <div className="navbar-content-container">

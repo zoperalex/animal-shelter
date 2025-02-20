@@ -1,13 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Carousel.css";
 
+const images = [
+    "/images/dogs.png",
+    "/images/animalshelter.png",
+    "/images/raccoon.jpg",
+    "/images/tortoise.jpg",
+];
+
 const Carousel = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 4000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const goToSlide = (index: number) => {
+        setCurrentIndex(index);
+    };
+
     return (
-        <div>
-            <div className="carousel">
-                <div className="carousel-item">
-                    <img src="/images/animalshelter.png" alt="" />
+        <div className="carousel">
+            {images.map((image, index) => (
+                <div
+                    key={index}
+                    className={`carousel-item ${
+                        index === currentIndex ? "active" : ""
+                    }`}
+                >
+                    <img src={image} alt={`Slide ${index}`} />
                 </div>
+            ))}
+            <div className="carousel-indicators">
+                {images.map((_, index) => (
+                    <span
+                        key={index}
+                        className={`indicator ${
+                            index === currentIndex ? "active" : ""
+                        }`}
+                        onClick={() => goToSlide(index)}
+                    ></span>
+                ))}
             </div>
         </div>
     );
