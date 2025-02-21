@@ -32,15 +32,19 @@
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
+    height: 15px;
+    display: flex;
+    align-items: center;
 }
 
 .indicator {
-    width: 10px;
-    height: 10px;
+    width: 12.5px;
+    height: 12.5px;
     border-radius: 50%;
     background-color: gray;
     cursor: pointer;
     transition: background-color 0.3s;
+    transition: width, height 0.3s;
 }
 
 .indicator.active {

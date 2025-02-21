@@ -13,20 +13,20 @@
 }
 
 .title {
-    margin-left: 2rem;
+    margin-left: 10vw;
 }
 
 .menu {
-    margin-right: 2rem;
+    margin-right: 5vw;
 }
 
 .navbar-content-container {
     position: absolute;
-    top: 10%;
-    width:100%;
-    display:flex;
+    top: 2vw;
+    width: 100%;
+    display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: end;
 }
 
 Link {
@@ -48,4 +48,13 @@ Link {
 
 .wholeNavbar.hovered {
     top: 0 !important;
+}
+
+a {
+    transition: color 0.2s ease-in-out, filter 0.1s ease-in-out;
+}
+
+a:hover {
+    color: #fdfff5;
+    filter: drop-shadow(0px 0px 4px #3a322d);
 }

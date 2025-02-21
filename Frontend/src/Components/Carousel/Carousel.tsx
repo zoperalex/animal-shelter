@@ -42,6 +42,16 @@ const Carousel = () => {
                         className={`indicator ${
                             index === currentIndex ? "active" : ""
                         }`}
+                        style={{
+                            width: `${Math.max(
+                                12.5 - 2.5 * Math.abs(currentIndex - index),
+                                7.5
+                            )}px`,
+                            height: `${Math.max(
+                                12.5 - 2.5 * Math.abs(currentIndex - index),
+                                7.5
+                            )}px`,
+                        }}
                         onClick={() => goToSlide(index)}
                     ></span>
                 ))}
