@@ -1,0 +1,50 @@
+@font-face {
+    font-family: "Hugh";
+    src: url("/public/fonts/hugh.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "WhisperingSignature";
+    src: url("/public/fonts/WhisperingSignature.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.carousel-text {
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    color: #fdfff5;
+    text-align: Left;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 10;
+    filter: drop-shadow(0 0 10px #3a322d);
+}
+
+.carousel-text h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+h1 span {
+    font-family: "Hugh", sans-serif;
+    font-size: 2em;
+}
+
+.carousel-text h3 {
+    margin: 0;
+    margin-top: 1vw;
+    margin-left: 12vw;
+    font-size: 1.2em;
+    font-family: "WhisperingSignature", sans-serif;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #fdfff5;
+}

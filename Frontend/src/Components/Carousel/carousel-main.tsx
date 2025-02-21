@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./Carousel.css";
+import "./carousel-main.css";
+import CarouselText from "./carousel-text";
 
 const images = [
     "/images/dogs.png",
@@ -35,6 +36,7 @@ const Carousel = () => {
                     <img src={image} alt={`Slide ${index}`} />
                 </div>
             ))}
+            <CarouselText />
             <div className="carousel-indicators">
                 {images.map((_, index) => (
                     <span
