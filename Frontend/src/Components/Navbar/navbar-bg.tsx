@@ -45,6 +45,7 @@ const Navbar = () => {
                     className="NavBar"
                     src="/images/NavBar-white.svg"
                     alt="clouds"
+                    style={{ opacity: 0.65 }}
                 />
                 <div className="navbar-content-container">
                     <div className="title">
