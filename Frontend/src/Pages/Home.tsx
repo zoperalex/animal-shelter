@@ -1,13 +1,12 @@
 import React from "react";
-import { Carousel, Navbar } from "../Components";
+import { Carousel, HomeBody, Navbar } from "../Components";
 
 const Home = () => {
     return (
         <div>
             <Navbar />
-            <div style={{ top: "10vh" }}>
-                <Carousel />
-            </div>
+            <Carousel />
+            <HomeBody />
         </div>
     );
 };
