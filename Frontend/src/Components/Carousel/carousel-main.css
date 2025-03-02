@@ -27,26 +27,35 @@
 
 .carousel-indicators {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
     gap: 10px;
     height: 15px;
     display: flex;
     align-items: center;
+    z-index: 11;
 }
 
 .indicator {
     width: 12.5px;
     height: 12.5px;
     border-radius: 50%;
-    background-color: gray;
+    background-color: #3a322d;
     cursor: pointer;
-    transition: background-color 0.3s;
-    transition: width, height 0.3s;
+    transition: scale 0.3s;
+    flex: 0 0 auto;
+    scale: 0.7;
+    border: 2px solid #fdfff5;
 }
 
 .indicator.active {
-    background-color: white;
+    background-color: #fdfff5;
+    scale: 1;
+    border: 2px solid #3a322d;
+}
+
+.indicator.active + .indicator,
+.indicator:has(+ .indicator.active) {
+    scale: 0.8;
 }

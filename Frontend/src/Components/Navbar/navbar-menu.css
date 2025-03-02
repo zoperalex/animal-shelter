@@ -1,12 +1,15 @@
 .menu-list {
     list-style-type: none;
     display: flex;
+    align-items: center;
     margin: 0.35rem 3rem 0 0;
 }
 
 .menu-list li {
     margin: 0px 1.5rem;
     font-weight: 600;
+}
+.nav-link {
     cursor: pointer;
 }
 
