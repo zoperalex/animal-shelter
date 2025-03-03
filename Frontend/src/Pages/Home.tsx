@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel, HomeBody, Navbar } from "../Components";
+import { Carousel, HomeBody, Navbar, Footer } from "../Components";
 
 const Home = () => {
     return (
@@ -7,6 +7,7 @@ const Home = () => {
             <Navbar />
             <Carousel />
             <HomeBody />
+            <Footer />
         </div>
     );
 };
