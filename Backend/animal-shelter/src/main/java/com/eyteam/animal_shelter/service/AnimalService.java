@@ -43,6 +43,8 @@ public class AnimalService {
     }
 
 
+
+
     public GetFilteredAnimalResponse getFilteredAnimals() {
         return null;
     }

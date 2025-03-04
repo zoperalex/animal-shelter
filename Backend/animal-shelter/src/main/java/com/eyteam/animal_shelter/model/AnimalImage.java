@@ -1,17 +1,21 @@
 package com.eyteam.animal_shelter.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
 @Data
 public class AnimalImage {
-    private int id;
 
-    @Column(name = "animal_id")
-    private int animalId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "animal_id", referencedColumnName = "id", nullable = false)
+    private Animal animal;
+
     private String name;
     private byte[] image;
 }

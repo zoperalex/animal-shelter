@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController("/")
@@ -18,11 +19,6 @@ public class AnimalController {
     @Autowired
     AnimalService service;
 
-
-    @GetMapping("name")
-    public String getName() {
-        return "Hello World";
-    }
 
     @GetMapping(value = "animal", produces = MediaType.APPLICATION_JSON_VALUE)
     public GetAllAnimalsResponse getAllAnimals() {
@@ -43,5 +39,14 @@ public class AnimalController {
     public AnimalCard getAnimalCard(@PathVariable Integer id){
         return service.getAnimalCard(id);
     }
+
+    @GetMapping(value = "animal/search")
+    public GetAllAnimalsResponse getAnimals(
+            @RequestParam String colorId,
+            @RequestParam String breedId){
+
+        return null;
+    }
+
 
 }

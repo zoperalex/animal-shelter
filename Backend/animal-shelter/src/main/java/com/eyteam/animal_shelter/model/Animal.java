@@ -13,29 +13,31 @@ public class Animal {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name;
 
-    @Column(name = "DoB")
+    @Column(name = "birth_date")
     private LocalDate dob;
 
     private String species;
 
     private String sex;
 
-    private String breed;
+    @ManyToOne
+    @JoinColumn(name = "breed_id", referencedColumnName = "id")
+    private Breed breed;
 
     private String background;
 
     private String description;
 
-    private String color;
+    @ManyToOne
+    @JoinColumn(name = "color_id", referencedColumnName = "id")
+    private Color color;
 
     @Column(name= "disabilities")
     private Boolean disabled;
 
-    @ManyToOne
-    @JoinColumn(name = "animal_id")
-    private List<AnimalImage> image;
 }
