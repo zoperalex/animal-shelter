@@ -1,11 +1,9 @@
-package com.eyteam.animal_shelter.model;
+package com.eyteam.animal_shelter.model.breed;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Value;
 
 import java.time.LocalDate;
 

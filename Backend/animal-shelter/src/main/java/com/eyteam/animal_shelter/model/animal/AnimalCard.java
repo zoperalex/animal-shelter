@@ -1,4 +1,4 @@
-package com.eyteam.animal_shelter.model;
+package com.eyteam.animal_shelter.model.animal;
 
 
 import lombok.Data;
@@ -21,6 +21,7 @@ public class AnimalCard {
 
     public static AnimalCard fromAnimal(Animal a) {
         Integer age = LocalDate.ofEpochDay(System.currentTimeMillis() - a.getDob().atStartOfDay(ZoneId.of("UTC")).toInstant().toEpochMilli()).getYear();
+        //TODO add images
         return new AnimalCard(
                 a.getName(),
                 age,

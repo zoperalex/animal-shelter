@@ -1,4 +1,4 @@
-package com.eyteam.animal_shelter.model;
+package com.eyteam.animal_shelter.model.animal;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

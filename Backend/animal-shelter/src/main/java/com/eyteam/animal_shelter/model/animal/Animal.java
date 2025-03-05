@@ -1,11 +1,12 @@
-package com.eyteam.animal_shelter.model;
+package com.eyteam.animal_shelter.model.animal;
 
 
+import com.eyteam.animal_shelter.model.breed.Breed;
+import com.eyteam.animal_shelter.model.color.Color;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data
