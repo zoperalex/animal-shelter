@@ -1,4 +1,4 @@
-package com.eyteam.animal_shelter.model.animal;
+package com.eyteam.animal_shelter.model.dto;
 
 
 import com.eyteam.animal_shelter.model.breed.Breed;
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
-public class Animal {
+public class AnimalDto {
 
 
     @Id
@@ -39,6 +39,6 @@ public class Animal {
     private Color color;
 
     @Column(name= "disabilities")
-    private Boolean hasDisabilities;
+    private Boolean disabled;
 
 }

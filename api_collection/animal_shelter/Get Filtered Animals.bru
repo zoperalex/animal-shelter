@@ -1,0 +1,17 @@
+meta {
+  name: Get Filtered Animals
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{host}}/animal/search?breedId=1
+  body: none
+  auth: none
+}
+
+params:query {
+  breedId: 1
+  ~disabilities: true
+  ~colorId: 1
+}

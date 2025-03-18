@@ -15,7 +15,7 @@ INSERT INTO color (color, created_on) VALUES
 ('Grey', CURRENT_DATE);
 
 -- Insert animals
-INSERT INTO animal (created_on, name, DoB, species, sex, breed_id, background, description, color_id, disabilities)
+INSERT INTO animal (created_on, name, birth_date, species, sex, breed_id, background, description, color_id, disabilities)
 VALUES
 (CURRENT_DATE, 'Buddy', '2021-06-15', 'Dog', 'Male', 1, 'Rescue dog', 'Friendly and energetic', 1, FALSE),
 (CURRENT_DATE, 'Misty', '2020-08-21', 'Cat', 'Female', 2, 'Adopted from shelter', 'Very affectionate', 2, FALSE),
