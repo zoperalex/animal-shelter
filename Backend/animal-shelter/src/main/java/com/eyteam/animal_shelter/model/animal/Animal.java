@@ -27,7 +27,7 @@ public class Animal {
     private String sex;
 
     @ManyToOne
-    @JoinColumn(name = "breed_id", referencedColumnName = "id")
+    @JoinColumn(name = "breed_id", referencedColumnName = "id", nullable = false)
     private Breed breed;
 
     private String background;
