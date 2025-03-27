@@ -1,16 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./home-body.css";
 import { InfoCard } from "../HomeBody";
 import { fetchNews } from "../../API-Calls";
 
-const db = {
-    title: "Meet the pups!",
-    infoImage: "/images/dogs.png",
-    description:
-        "The pups are here! Ol' Betsy has finally had her pups, and they are as cute as ever! Come meet them!",
-};
-
 const HomeBody = () => {
+    const [newsObj, setNewsObj] = React.useState({
+        title: "",
+        description: "",
+        infoImage: "",
+    });
+
+    useEffect(() => {
+        let imageUrl = "";
+
+        const fetchData = async () => {
+            const cachedNews = localStorage.getItem("news");
+            if (cachedNews) {
+                setNewsObj(JSON.parse(cachedNews));
+                return;
+            } else {
+                try {
+                    const data = await fetchNews();
+                    imageUrl = URL.createObjectURL(data.infoImage);
+                    setNewsObj({ ...data, infoImage: imageUrl });
+                } catch (error) {
+                    console.error("Error fetching news:", error);
+                }
+            }
+        };
+
+        fetchData();
+
+        return () => {
+            if (imageUrl) {
+                URL.revokeObjectURL(imageUrl); // Release memory
+            }
+        };
+    }, []);
+
     return (
         <div className="home-body">
             <div className="top-image-container">
@@ -23,10 +50,13 @@ const HomeBody = () => {
             <div className="home-body-info">
                 <div className="home-body-info-description">
                     <h1 className="title">What's new...</h1>
-                    <p className="body">{db.description}</p>
+                    <p className="body">{newsObj.description}</p>
                 </div>
                 <div className="home-body-info-card-container">
-                    <InfoCard title={db.title} infoImage={db.infoImage} />
+                    <InfoCard
+                        title={newsObj.title}
+                        infoImage={newsObj.infoImage}
+                    />
                 </div>
             </div>
         </div>
