@@ -1,6 +1,7 @@
 import React from "react";
 import "./home-body.css";
 import { InfoCard } from "../HomeBody";
+import { fetchNews } from "../../API-Calls";
 
 const db = {
     title: "Meet the pups!",
