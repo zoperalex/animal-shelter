@@ -17,7 +17,7 @@ public class AnimalCardDto {
 
     String name;
     Integer age;
-    List<AnimalImage> image;
+    List<AnimalImageDto> image;
     String description;
 
 

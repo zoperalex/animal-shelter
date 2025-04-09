@@ -7,11 +7,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
 public class Animal {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +21,6 @@ public class Animal {
 
     @Column(name = "birth_date")
     private LocalDate dob;
-
-    private String species;
 
     private String sex;
 
@@ -40,5 +38,8 @@ public class Animal {
 
     @Column(name= "disabilities")
     private Boolean hasDisabilities;
+
+    @Column(name = "created_on")
+    private LocalDateTime createdOn;
 
 }

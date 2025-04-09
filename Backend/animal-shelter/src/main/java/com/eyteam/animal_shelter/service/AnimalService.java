@@ -54,8 +54,8 @@ public class AnimalService {
     }
 
 
-    public ResponseEntity<GetAllAnimalsResponse> getFilteredAnimals(Integer colorId, Integer breedId, Boolean disabilities) {
-        final List<Animal> animals = animalRepository.findAll(AnimalSpecification.filterByParams(breedId, colorId, disabilities));
+    public ResponseEntity<GetAllAnimalsResponse> getFilteredAnimals(Integer colorId, Integer speciesId, Integer breedId, Boolean disabilities) {
+        final List<Animal> animals = animalRepository.findAll(AnimalSpecification.filterByParams(breedId, speciesId,colorId, disabilities));
         if(animals.isEmpty()){
             return ResponseEntity.noContent().build();
         }

@@ -42,9 +42,10 @@ public class AnimalController {
     public ResponseEntity<GetAllAnimalsResponse> getAnimals(
             @RequestParam(required = false) Integer colorId,
             @RequestParam(required = false) Integer breedId,
+            @RequestParam(required = false) Integer speciedId,
             @RequestParam(required = false) Boolean disabilities){
 
-        return service.getFilteredAnimals(colorId, breedId, disabilities);
+        return service.getFilteredAnimals(colorId, speciedId, breedId, disabilities);
     }
 
 

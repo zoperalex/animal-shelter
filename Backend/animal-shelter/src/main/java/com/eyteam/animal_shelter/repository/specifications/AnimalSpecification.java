@@ -11,12 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnimalSpecification {
-    public static Specification<Animal> filterByParams(Integer breedId, Integer colorId, Boolean disabilities) {
+    public static Specification<Animal> filterByParams(Integer breedId, Integer speciesId, Integer colorId, Boolean disabilities) {
         return (Root<Animal> root, CriteriaQuery<?> query, CriteriaBuilder cb) -> {
             List<Predicate> predicates = new ArrayList<>();
 
             if (breedId != null) {
                 predicates.add(cb.equal(root.get("breed").get("id"), breedId));
+            }
+            if(speciesId != null){
+                predicates.add(cb.equal(root.get("breed").get("species").get("id"),speciesId));
             }
             if (colorId != null) {
                 predicates.add(cb.equal(root.get("color").get("id"), colorId));
