@@ -8,13 +8,13 @@
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
 services:
-  server:
-    build:
-      context: .
-    ports:
-      - 8080:8443
-    depends_on:
-      - postgres
+#  server:
+#    build:
+#      context: ../..
+#    ports:
+#      - 8443:8443
+#    depends_on:
+#      - postgres
 
 
 # The commented out section below is an example of how to define a PostgreSQL
@@ -33,21 +33,32 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
-    networks:
-      - springboot_network
+      - "5433:5432"
+#    networks:
+#      - springboot_network
+  app:
+    build: .
+    container_name: animal_container
+    depends_on:
+      - postgres
+    ports:
+      - "8443:8443"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_container:5432/animal_shelter
+      SPRING_DATASOURCE_USERNAME: gabrielwheeler
+      SPRING_DATASOURCE_PASSWORD: gabrielwheeler
 
 
 #  db:
 #   image: postgres
 #   restart: always
-#   user: postgres
+#   user: gabrielwheeler
 #   secrets:
 #     - db-password
 #   volumes:
 #     - db-data:/var/lib/postgresql/data
 #   environment:
-#     - POSTGRES_DB=example
+#     - POSTGRES_DB=animal_shelter
 #     - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
 #   expose:
 #     - 5432
