@@ -69,7 +69,7 @@ INSERT into newsletter (title, description, image, active, created_On) VALUES
   'Postgres Insider',
   'Monthly updates and deep dives into PostgreSQL features.',
   decode('FFD8FFE000104A464946000101000001', 'hex'), -- dummy JPEG header
-  true,
+  false,
   now() - interval '7 days'
 ),
 (
