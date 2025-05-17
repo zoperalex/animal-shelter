@@ -1,49 +1,53 @@
 @font-face {
-    font-family: "Sigmar-Regular";
-    src: url(../../../public/fonts/Sigmar-Regular.ttf);
+	font-family: "Sigmar-Regular";
+	src: url(../../../public/fonts/Sigmar-Regular.ttf);
 }
 
 .home-body {
-    background-color: #fdfff5;
+	background-color: #fdfff5;
+}
+
+body::-webkit-scrollbar {
+	display: none; /* Chrome, Safari */
 }
 
 .top-image-container {
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: end;
-    position: absolute;
-    z-index: 10;
-    top: 87vh;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	align-items: end;
+	position: absolute;
+	z-index: 10;
+	top: 87vh;
 }
 
 .top-image {
-    transform: rotate(180deg);
-    height: 18vh;
-    min-height: 150px;
+	transform: rotate(180deg);
+	height: 18vh;
+	min-height: 150px;
 }
 
 .home-body-info-card-container {
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .home-body-info {
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 0 160px 0;
-    margin: 130px 350px 0 350px;
+	display: flex;
+	justify-content: space-between;
+	padding: 30px 0 160px 0;
+	margin: 130px 350px 0 350px;
 }
 
 .home-body-info-description .title {
-    margin: 0;
-    font-family: "Sigmar-Regular";
-    color: #3a322d;
+	margin: 0;
+	font-family: "Sigmar-Regular";
+	color: #3a322d;
 }
 
 .home-body-info-description .body {
-    width: 600px;
-    margin: 0;
-    font-family: "Sigmar-Regular";
-    color: #3a322d;
-    font-size: 35px;
+	width: 600px;
+	margin: 0;
+	font-family: "Sigmar-Regular";
+	color: #3a322d;
+	font-size: 35px;
 }
