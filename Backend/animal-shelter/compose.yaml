@@ -58,7 +58,7 @@ services:
       SPRING_DATASOURCE_USERNAME: animal_user
       SPRING_DATASOURCE_PASSWORD: animal_password
 
-volumes:
- postgres_data:
+#volumes:
+# postgres_data:
 
 
