@@ -1,0 +1,1 @@
+export { default as AdoptBody } from './adopt-body';

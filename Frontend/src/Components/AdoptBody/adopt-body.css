@@ -1,0 +1,19 @@
+.adopt-body-container {
+	background-color: #fdfff5;
+}
+
+.adopt-body-content {
+	min-height: 100vh;
+	padding-top: 200px;
+}
+
+.animal-card-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 24px;
+	justify-items: center;
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 24px 0;
+}

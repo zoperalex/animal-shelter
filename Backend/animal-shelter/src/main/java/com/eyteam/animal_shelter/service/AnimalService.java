@@ -15,50 +15,50 @@ import java.util.Optional;
 @Service
 public class AnimalService {
 
-    @Autowired
-    private AnimalRepository animalRepository;
+	@Autowired
+	private AnimalRepository animalRepository;
 
-    public AnimalService(AnimalRepository animalRepository) {
-        this.animalRepository = animalRepository;
-    }
+	public AnimalService(AnimalRepository animalRepository) {
+		this.animalRepository = animalRepository;
+	}
 
-    public ResponseEntity<GetAllAnimalsResponse> getAllAnimals() {
-        final List<Animal> animals = animalRepository.findAll();
-        if (animals.isEmpty() || animals == null) {
-            ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(new GetAllAnimalsResponse(animals));
-    }
+	public ResponseEntity<GetAllAnimalsResponse> getAllAnimals() {
+		final List<Animal> animals = animalRepository.findAll();
+		if (animals.isEmpty() || animals == null) {
+			ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok(new GetAllAnimalsResponse(animals));
+	}
 
-    public ResponseEntity<Animal> getAnimalById(Integer id) {
-        final Optional<Animal> animal = animalRepository.findAnimalById(id);
-        return ResponseEntity.of(animal);
-    }
+	public ResponseEntity<Animal> getAnimalById(Integer id) {
+		final Optional<Animal> animal = animalRepository.findAnimalById(id);
+		return ResponseEntity.of(animal);
+	}
 
-    public ResponseEntity<GetAllAnimalCardResponse> getAllAnimalCards() {
-        final List<Animal> animals = animalRepository.findAll();
-        if (animals.isEmpty() || animals == null) {
-            return ResponseEntity.noContent().build();
-        }
-        final List<AnimalCard> animalCards = animals.stream().map(AnimalCard::fromAnimal).toList();
-        return ResponseEntity.ok(new GetAllAnimalCardResponse(animalCards));
-    }
+	public ResponseEntity<GetAllAnimalCardResponse> getAllAnimalCards() {
+		final List<Animal> animals = animalRepository.findAll();
+		if (animals.isEmpty() || animals == null) {
+			return ResponseEntity.noContent().build();
+		}
+		final List<AnimalCard> animalCards = animals.stream().map(AnimalCard::fromAnimal).toList();
+		return ResponseEntity.ok(new GetAllAnimalCardResponse(animalCards));
+	}
 
+	public ResponseEntity<AnimalCard> getAnimalCard(Integer id) {
+		final Optional<Animal> animal = animalRepository.findAnimalById(id);
+		if (animal.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(animal.map(AnimalCard::fromAnimal).get());
+	}
 
-    public ResponseEntity<AnimalCard> getAnimalCard(Integer id) {
-        final Optional<Animal> animal = animalRepository.findAnimalById(id);
-        if (animal.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(animal.map(AnimalCard::fromAnimal).get());
-    }
-
-
-    public ResponseEntity<GetAllAnimalsResponse> getFilteredAnimals(Integer colorId, Integer speciesId, Integer breedId, Boolean disabilities) {
-        final List<Animal> animals = animalRepository.findAll(AnimalSpecification.filterByParams(breedId, speciesId,colorId, disabilities));
-        if(animals.isEmpty()){
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(new GetAllAnimalsResponse(animals));
-    }
+	public ResponseEntity<GetAllAnimalsResponse> getFilteredAnimals(Integer colorId, Integer speciesId, Integer breedId,
+			Boolean disabilities) {
+		final List<Animal> animals = animalRepository
+				.findAll(AnimalSpecification.filterByParams(breedId, speciesId, colorId, disabilities));
+		if (animals.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok(new GetAllAnimalsResponse(animals));
+	}
 }

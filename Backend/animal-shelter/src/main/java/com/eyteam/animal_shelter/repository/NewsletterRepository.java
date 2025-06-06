@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface NewsletterRepository extends JpaRepository<Newsletter, Integer> {
 
-    @Query("select s from Newsletter s where s.active = true")
-    Newsletter getActiveNewsletter();
+	@Query("select s from Newsletter s where s.active = true")
+	Newsletter getActiveNewsletter();
 
 }

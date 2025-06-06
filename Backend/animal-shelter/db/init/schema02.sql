@@ -59,8 +59,8 @@ INSERT INTO animal_image (animal_id, name, image) VALUES
 
 INSERT into newsletter (title, description, image, active, created_On) VALUES
 (
-  'Spring Boot Weekly',
-  'Get the latest tips, tricks, and news from the Spring ecosystem.',
+  'Puppy Fever',
+  'New pups are here! Check out our latest arrivals.',
   decode('89504E470D0A1A0A0000000D49484452', 'hex'), -- dummy PNG header
   true,
   now()

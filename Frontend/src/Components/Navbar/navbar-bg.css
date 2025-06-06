@@ -1,61 +1,61 @@
 @font-face {
-    font-family: "Sigmar-Regular";
-    src: url(../../../public/fonts/Sigmar-Regular.ttf);
+	font-family: "Sigmar-Regular";
+	src: url(../../../public/fonts/Sigmar-Regular.ttf);
 }
 
 .wholeNavbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    filter: drop-shadow(10px 5px 4px #3a322d);
-    font-family: "Sigmar-Regular";
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	filter: drop-shadow(10px 5px 4px #3a322d);
+	font-family: "Sigmar-Regular";
 }
 
 .wholeNavbar.transition {
-    transition: top 0.3s ease-in-out;
+	transition: top 0.3s ease-in-out;
 }
 
 .wholeNavbar.hovered {
-    top: 0 !important;
+	top: 0 !important;
 }
 
 .container {
-    position: relative;
-    color: #3a322d;
-    width: 100%;
-    overflow: hidden;
+	position: relative;
+	color: #3a322d;
+	width: 100%;
+	overflow: hidden;
 }
 
 .NavBar {
-    height: 18vh;
-    min-height: 150px;
+	height: 18vh;
+	min-height: 150px;
 }
 
 .navbar-content-container {
-    position: absolute;
-    top: 2vw;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
+	position: absolute;
+	top: 2vw;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
 }
 
 .title {
-    margin-left: 10vw;
+	margin-left: 10vw;
 }
 
 .menu {
-    margin-right: 5vw;
+	margin-right: 5vw;
 }
 
 .nav-link {
-    text-decoration: none;
-    color: #3a322d;
-    transition: color 0.2s ease-in-out, filter 0.1s ease-in-out;
+	text-decoration: none;
+	color: #3a322d;
+	transition: color 0.2s ease-in-out, filter 0.1s ease-in-out;
 }
 
 .nav-link:hover {
-    color: #fdfff5;
-    filter: drop-shadow(0px 0px 4px #3a322d);
+	color: #fdfff5;
+	filter: drop-shadow(0px 0px 4px #3a322d);
 }
