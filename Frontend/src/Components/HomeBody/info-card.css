@@ -1,59 +1,58 @@
 @font-face {
-    font-family: "Sigmar-Regular";
-    src: url(../../../public/fonts/Sigmar-Regular.ttf);
+	font-family: "Sigmar-Regular";
+	src: url(../../../public/fonts/Sigmar-Regular.ttf);
 }
 
 .info-card-container {
-    overflow: hidden;
-    border-radius: 20px;
-    border: 2px solid #3a322d;
-    width: 350px;
-    color: #3a322d;
-    justify-content: flex-end;
-    background-color: #fdfff5;
+	overflow: hidden;
+	border-radius: 20px;
+	border: 2px solid #3a322d;
+	width: 350px;
+	color: #3a322d;
+	justify-content: flex-end;
+	background-color: #fdfff5;
 }
 
 .info-title-container {
-    display: flex;
-    justify-content: center;
-    margin: 0px;
-    font-size: 40px;
-    white-space: nowrap;
+	display: flex;
+	justify-content: center;
+	margin: 0px;
+	white-space: nowrap;
 }
 
 .info-title-container p {
-    margin: 0;
-    font-family: "Sigmar-Regular";
+	margin: 0;
+	font-family: "Sigmar-Regular";
 }
 
 .info-title-image-container {
-    height: 400px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
+	height: 400px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
 }
 
 .info-title-image-container img {
-    height: 100%;
+	height: 100%;
 }
 
 .info-description-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 10px;
-    font-size: 30px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 10px;
+	font-size: 30px;
 }
 
 .info-description-container p {
-    margin: 0;
+	margin: 0;
 }
 
 .right-arrow {
-    width: 50px;
-    height: 50px;
+	width: 50px;
+	height: 50px;
 }
 
 .info-description-image-container {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }

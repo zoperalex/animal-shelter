@@ -1,81 +1,147 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./adopt-body.css";
 import AnimalCard from "../AnimalCard/animal-card";
+import { fetchAnimalCards, fetchFilteredAnimals } from "../../API-Calls";
 
-const animals = {
-	dog: {
-		name: "Buddy",
-		description: "A friendly golden retriever looking for a loving home.",
-		imageUrl: "/images/dog.jpg",
-	},
-	cat: {
-		name: "Whiskers",
-		description: "A playful tabby cat who loves to cuddle.",
-		imageUrl: "/images/cat.jpg",
-	},
-	rabbit: {
-		name: "Fluffy",
-		description: "A cute bunny that enjoys hopping around.",
-		imageUrl: "/images/rabbit.jpg",
-	},
-	parrot: {
-		name: "Polly",
-		description: "A colorful parrot that loves to talk.",
-		imageUrl: "/images/parrot.jpg",
-	},
-	hamster: {
-		name: "Nibbles",
-		description: "A tiny hamster with a big appetite.",
-		imageUrl: "/images/hamster.jpg",
-	},
-	turtle: {
-		name: "Shelly",
-		description: "A calm turtle who loves basking in the sun.",
-		imageUrl: "/images/turtle.jpg",
-	},
-	guineaPig: {
-		name: "Peanut",
-		description: "A gentle guinea pig who enjoys being held.",
-		imageUrl: "/images/guinea-pig.jpg",
-	},
-	ferret: {
-		name: "Slinky",
-		description: "A playful ferret who loves to explore.",
-		imageUrl: "/images/ferret.jpg",
-	},
-	horse: {
-		name: "Star",
-		description: "A majestic horse ready for a new adventure.",
-		imageUrl: "/images/horse.jpg",
-	},
-	goat: {
-		name: "Billy",
-		description: "A curious goat who loves to climb.",
-		imageUrl: "/images/goat.jpg",
-	},
-	chinchilla: {
-		name: "Dusty",
-		description: "A soft chinchilla who enjoys dust baths.",
-		imageUrl: "/images/chinchilla.jpg",
-	},
-	duck: {
-		name: "Quackers",
-		description: "A cheerful duck who loves swimming.",
-		imageUrl: "/images/duck.jpg",
-	},
-};
+interface AnimalCardData {
+	id: number;
+	name: string;
+	description: string;
+	image: string; // base64 string
+}
 
 const AdoptBody = () => {
+	const [animalCards, setAnimalCards] = useState<AnimalCardData[]>([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
+
+	// Filter state
+	const [colorId, setColorId] = useState<number | undefined>();
+	const [breedId, setBreedId] = useState<number | undefined>();
+	const [speciedId, setSpeciedId] = useState<number | undefined>();
+	const [disabilities, setDisabilities] = useState<boolean | undefined>();
+
+	useEffect(() => {
+		loadAllCards();
+	}, []);
+
+	const loadAllCards = async () => {
+		try {
+			setLoading(true);
+			const data = await fetchAnimalCards();
+			console.log("All animal cards response:", data);
+			// Adjust this according to actual API shape
+			const cards = Array.isArray(data) ? data : data.animalCards;
+			setAnimalCards(cards || []);
+			setError(null);
+		} catch (err) {
+			console.error(err);
+			setError("Failed to load animals.");
+			setAnimalCards([]);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	const applyFilters = async () => {
+		try {
+			setLoading(true);
+			const data = await fetchFilteredAnimals(
+				colorId,
+				breedId,
+				speciedId,
+				disabilities
+			);
+			console.log("Filtered animals response:", data);
+			const cards = Array.isArray(data) ? data : data.animalCards;
+			setAnimalCards(cards || []);
+			setError(null);
+		} catch (err) {
+			console.error(err);
+			setError("Failed to load filtered animals.");
+			setAnimalCards([]);
+		} finally {
+			setLoading(false);
+		}
+	};
+
 	return (
 		<div className="adopt-body-container">
+			<div className="filter-bar">
+				<select
+					onChange={(e) =>
+						setColorId(
+							e.target.value
+								? parseInt(e.target.value)
+								: undefined
+						)
+					}
+				>
+					<option value="">All Colors</option>
+					<option value="1">Black</option>
+					<option value="2">Brown</option>
+					<option value="3">White</option>
+				</select>
+
+				<select
+					onChange={(e) =>
+						setBreedId(
+							e.target.value
+								? parseInt(e.target.value)
+								: undefined
+						)
+					}
+				>
+					<option value="">All Breeds</option>
+					<option value="1">Labrador</option>
+					<option value="2">Beagle</option>
+					<option value="3">Persian Cat</option>
+				</select>
+
+				<select
+					onChange={(e) =>
+						setSpeciedId(
+							e.target.value
+								? parseInt(e.target.value)
+								: undefined
+						)
+					}
+				>
+					<option value="">All Species</option>
+					<option value="1">Dog</option>
+					<option value="2">Cat</option>
+					<option value="3">Rabbit</option>
+				</select>
+
+				<label>
+					<input
+						type="checkbox"
+						onChange={(e) =>
+							setDisabilities(e.target.checked ? true : undefined)
+						}
+					/>
+					Disabilities
+				</label>
+
+				<button onClick={applyFilters}>Apply Filters</button>
+				<button onClick={loadAllCards}>Clear Filters</button>
+			</div>
+
 			<div className="adopt-body-content">
+				{loading && <p>Loading animals...</p>}
+				{error && <p>{error}</p>}
 				<div className="animal-card-grid">
-					{Object.keys(animals).map((key) => (
-						<AnimalCard
-							key={key}
-							animal={animals[key as keyof typeof animals]}
-						/>
-					))}
+					{Array.isArray(animalCards) &&
+						animalCards.map((animal) => (
+							<AnimalCard
+								key={animal.id}
+								animal={{
+									name: animal.name,
+									description: animal.description,
+									imageUrl: `data:image/jpeg;base64,${animal.image}`,
+								}}
+							/>
+						))}
 				</div>
 			</div>
 		</div>
